@@ -1,19 +1,6 @@
 "Resource/UI/HudPlayerClass.res"
 {
-	"radar_upward"
-	{
-		"visible"			"1"
-		"enabled"			"1"
-		"controlName"		"ImagePanel"
-		"fieldName"			"radar_upward"
-		"zpos"				"-101"
-		"xpos"				"50"
-		"ypos"				"50"
-		"wide"				"100"
-		"tall"				"100"
-		"image"				"replay/thumbnails/radar/radar_upward"
-		"scaleImage"		"1"
-	}
+
 	"center"
 	{
 		"ControlName"	"EditablePanel"
@@ -24,20 +11,7 @@
 		"visible"			"0"
 		"bgcolor_override"	"255 0 0 255"
 	}
-	"radar_x"
-	{
-		"visible"			"1"
-		"enabled"			"1"
-		"controlName"		"ImagePanel"
-		"fieldName"			"radar_x"
-		"zpos"				"-100"
-		"xpos"			"50+48"
-		"ypos"			"50+48"
-		"wide"				"4"
-		"tall"				"4"
-		"image"				"replay/thumbnails/radar/blip"
-		"scaleImage"		"1"
-	}
+
 	"radar_y"
 	{
 		"visible"			"0"
