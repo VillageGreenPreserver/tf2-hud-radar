@@ -14,18 +14,7 @@
 		"keyboardinputenabled"	"0"
 		"mouseinputenabled"		"0"
 		"paintBackground"	"0"
-	}
-	
-	"HudMatchStatus"
-	{
-		"ControlName"	"CTFHudMatchStatus"
-		"fieldName"		"HudMatchStatus"
-		"avatar_width"	"63"
-		"spacer"		"5"
-		"name_width"	"57"
-		"horiz_inset"	"2"
-		"visible"		"1"
-		"ignorescheme"	"1"
+		"ForceStereoRenderToFrameBuffer"	"1"
 	}
 	
 	"Overlay"
@@ -102,7 +91,7 @@
 		"pinCorner"		"2"
 		"visible"		"0"
 		"enabled"		"1"
-		"labelText"		"#TF_Continue"
+		"labelText"		"&Continue"
 		"textAlignment"	"center"
 		"dulltext"		"0"
 		"brighttext"	"0"

@@ -8,6 +8,7 @@
 		"name_width"	"57"
 		"horiz_inset"	"2"
 		"visible"		"1"
+		"ForceStereoRenderToFrameBuffer"	"1"
 	}
 
 	"RoundSignModel"
