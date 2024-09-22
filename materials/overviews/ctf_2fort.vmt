@@ -1,0 +1,165 @@
+//Radar vmt by Village Green Preserver, modified from https://github.com/gliptal2/tf2-hud-radar
+
+"UnlitGeneric"
+{
+	"$basetexture"		"vgui/replay/thumbnails/radar/ctf_2fort"
+	"$translucent"		"1"
+	"$vertexcolor"		"1"
+	"$vertexalpha"		"1"
+
+	//mask the radar
+	//"$detail"			"vgui/replay/thumbnails/radar/circle"
+	//"$detailscale"		"1"
+	//"$detailblendmode"	"9"
+
+
+	//variables for storing numbers, because proxies can't just use numbers for some reason
+	"$minusone"			"-1"
+	"$zero"				"0"
+	"$one"				"1"
+	"$two"				"2"
+	"$three"			"3"
+	"$four"				"4"
+	
+	"$pos"				"[0.0 0.0 0.0]" //raw position data
+	"$posX"				"0.0"
+	"$posY"				"0.0"
+	"$posZ"				"0.0"
+	"$finalpos"			"[0.0 0.0]" //position data after all calculations
+	
+	"$totalX"			"4600" //scale the image so the distances line up, the higher the value, the less the image moves
+	"$totalY"			"9200" //seperate value for y axis if using a non-square vtf
+
+	"$offsetX"			"0" //offset the image, not needed if you take your screenshots at coordinates 0, 0
+	"$offsetY"			"0"
+		
+	"$scale"			"[0.2 0.4]" //size of the radar image
+	"$rotate"			"-90" //rotate radar image
+
+	"$layer1"			"-100" //zpos at which to change layer
+	"$layer2"			"250"
+
+	Proxies {
+
+		//===== Position =====
+
+		//get player position data
+		PlayerPosition
+		{
+			scale			"1"
+			resultVar		"$pos"
+		}
+
+		//extract x value and store in $posX
+		Clamp
+		{
+			srcVar1			"$zero"
+			min				"$pos[0]"
+			max				"$pos[0]"
+			resultVar		"$posX"
+		}
+
+		//extract y value and store in $posY
+		Clamp
+		{
+			srcVar1			"$zero"
+			min				"$pos[1]"
+			max				"$pos[1]"
+			resultVar		"$posY"
+		}
+
+		//offset x value
+		Add
+		{
+			srcVar1			"$posX"
+			srcVar2			"$offsetX"
+			resultVar		"$posX"
+		}
+
+		//offset y value
+		Add
+		{
+			srcVar1			"$posY"
+			srcVar2			"$offsetY"
+			resultVar		"$posY"
+		}
+
+		//scale x value
+		Divide
+		{
+			srcVar1			"$posX"
+			srcVar2			"$totalX"
+			resultVar		"$posX"
+		}
+
+		//scale y value
+		Divide
+		{
+			srcVar1			"$posY"
+			srcVar2			"$totalY"
+			resultVar		"$posY"
+		}
+
+		//invert y value
+		Multiply
+		{
+			srcVar1			"$posY"
+			srcVar2			"$minusone"
+			resultVar		"$posY"
+		}
+
+		//store x in array
+		Equals
+		{
+			srcVar1			"$posX"
+			resultVar		"$finalpos[0]"
+		}
+
+		//store y in array
+		Equals
+		{
+			srcVar1			"$posY"
+			resultVar		"$finalpos[1]"
+		}
+
+		//apply changes
+		TextureTransform
+		{
+			translateVar	"$finalpos"
+			scaleVar		"$scale"
+			rotatevar		"$rotate"
+			resultVar		"$basetexturetransform"
+		}
+
+		//===== Layer =====
+
+		//extract z value and store in $posz
+		Clamp
+		{
+			srcVar1			"$zero"
+			min				"$pos[2]"
+			max				"$pos[2]"
+			resultVar		"$posZ"
+		}
+
+		//if $posZ > $layer1, $frame = 1, else $frame = 0
+		LessOrEqual
+		{
+			lessEqualVar	"$zero"
+			greaterVar		"$one"
+			srcVar1			"$posZ"
+			srcVar2			"$layer1"
+			resultVar		"$frame"
+		}
+
+		//if $posZ > $layer2, $frame = 2, else $frame = $frame
+		LessOrEqual
+		{
+			lessEqualVar	"$frame"
+			greaterVar		"$two"
+			srcVar1			"$posZ"
+			srcVar2			"$layer2"
+			resultVar		"$frame"
+		}
+	}
+}

@@ -51,12 +51,28 @@ event TESTING
 {
 	RunEventChild	MainMenuOverride	CommandTest	0.0
 	RunEvent TestingLooper	0.0
+}
 
+event CompetitiveGame_LowerChatWindow
+{
+	RunEvent TestingLooper	0.0
+}
+
+event CompetitiveGame_RestoreChatWindow
+{
+	RunEvent TestingLooper	0.0
+}
+
+event HudTournament_MoveChatWindow
+{
+	RunEvent CompetitiveGame_LowerChatWindow 0
+	RunEvent CompetitiveGame_RestoreChatWindow 10
 }
 
 event TestingLooper
 {
 	SetVisible	roundinfo	1	0
+	SetVisible	HudMatchStatus	1	0
 	RunEvent	looper	0.000
 }
 
@@ -1443,21 +1459,9 @@ event QuestItem_Highlight_Off_Halloween
 }
 
 //--------------------------------------------------------------------------
-event CompetitiveGame_LowerChatWindow
-{
-	Animate HudChat ypos r140 Accel 0 0
-}
 
-event CompetitiveGame_RestoreChatWindow
-{
-	Animate HudChat ypos 275 Accel 0 0
-}
 
-event HudTournament_MoveChatWindow
-{
-	RunEvent CompetitiveGame_LowerChatWindow 0
-	RunEvent CompetitiveGame_RestoreChatWindow 10
-}
+
 
 //--------------------------------------------------------------------------
 
