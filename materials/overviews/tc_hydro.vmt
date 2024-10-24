@@ -18,8 +18,6 @@
 		"$scale"			"[0.15 0.3]" //size of the radar image
 		"$rotate"			"0" //rotate radar image
 
-		"$speedScale"		"1000" //how much to zoom out
-
 		"$layer1"			"220"
 		"$layer2"			"400"
 		"$layer3"			"650"

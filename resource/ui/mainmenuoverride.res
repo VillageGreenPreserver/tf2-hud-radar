@@ -1,3 +1,5 @@
+#base	"mainmenuoverride_radarpreload.res"
+
 "Resource/UI/MainMenuOverride.res"
 {
 	MainMenuOverride
@@ -118,7 +120,7 @@
 				"zpos"			"9"
 			}
 		}
-	}	
+	}
 
 	"preload"
 	{

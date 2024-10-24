@@ -8,10 +8,16 @@
 	"$vertexcolor"		"1"
 	"$vertexalpha"		"1"
 
+	"$speedScale"		"1000" //how much to zoom out, lower value zooms out further
+	"$speedBool"		"1" //Turn zooming on or off
+
 	//change radar shape
 	//"$detail"			"vgui/replay/thumbnails/radar/mask"
 	//"$detailscale"		"1"
 	//"$detailblendmode"	"9"
+
+
+
 
 
 	//variables for storing numbers, because proxies can't just use numbers for some reason
@@ -27,24 +33,25 @@
 	"$posY"				"0.0"
 	"$posZ"				"0.0"
 	"$finalpos"			"[0.0 0.0]" //position data after all calculations
-	
-	"$totalX"			"7175" //scale the image so the distances line up, the higher the value, the less the image moves
-	"$totalY"			"14350" //seperate value for y axis if using a non-square vtf
-
-	"$offsetX"			"6000" //offset the image, not needed if you take your screenshots at coordinates 0, 0
-	"$offsetY"			"-1350"
-
-	"$rotate"			"-90" //rotate radar image
-
-	"$layer1"			"30" //zpos at which to change layer
-	"$layer2"			"250"
-	"$layer3"			"250"
-	"$layer4"			"250"
 
 	"$speed"			"0"
-	"$speedScale"		"1000" //how much to zoom out
+	
+	"$totalX"			"0" //scale the image so the distances line up, the higher the value, the less the image moves
+	"$totalY"			"0" //seperate value for y axis if using a non-square vtf
 
-	"$scale"				"[0.15 0.3]" //minimum zoom level
+	"$offsetX"			"0" //offset the image, not needed if you take your screenshots at coordinates 0, 0
+	"$offsetY"			"0"
+
+	"$rotate"			"0" //rotate radar image
+
+	"$layer1"			"9999" //zpos at which to change layer
+	"$layer2"			"9999"
+	"$layer3"			"9999"
+	"$layer4"			"9999"
+
+	"$scale"			"[1.0 1.0]" //minimum zoom level
+	"$scaleX"			"1.0"
+	"$scaleY"			"1.0"
 	"$zoomX"			"0.0"
 	"$zoomY"			"0.0"
 	"$zoomFinal"		"[0.0 0.0]"
@@ -149,7 +156,7 @@
 			resultVar		"$speed"
 		}
 
-		//shift value so the range is >1
+		//shift value so stationary == 1
 		Add
 		{
 			srcVar1			"$speed"
@@ -190,7 +197,55 @@
 			resultVar		"$zoomY"
 		}
 		
-		//store zoom values
+		//multiply zoom with the bool, if its 1, nothing changes, if its 0, then zoom = 0
+		Multiply
+		{
+			srcVar1			"$zoomX"
+			srcVar2			"$speedBool"
+			resultVar		"$zoomX"
+		}
+
+		Multiply
+		{
+			srcVar1			"$zoomY"
+			srcVar2			"$speedBool"
+			resultVar		"$zoomY"
+		}
+
+		//extract x value and store in $scaleX
+		Clamp
+		{
+			srcVar1			"$zero"
+			min				"$scale[0]"
+			max				"$scale[0]"
+			resultVar		"$scaleX"
+		}
+
+		//extract y value and store in $scaleY
+		Clamp
+		{
+			srcVar1			"$zero"
+			min				"$scale[1]"
+			max				"$scale[1]"
+			resultVar		"$scaleY"
+		}
+
+		//if zoom value is 0, then use the default scale
+		SelectFirstIfNonZero
+		{
+			srcVar1			"$zoomX"
+			srcVar2			"$scaleX"
+			resultVar		"$zoomX"
+		}
+
+		SelectFirstIfNonZero
+		{
+			srcVar1			"$zoomY"
+			srcVar2			"$scaleY"
+			resultVar		"$zoomY"
+		}
+
+		//store zoom values in array
 		Equals
 		{
 			srcVar1			"$zoomX"
@@ -253,7 +308,7 @@
 			resultVar		"$frame"
 		}
 
-		// etc.
+		//to add more layers you can add more of these
 		LessOrEqual
 		{
 			lessEqualVar	"$frame"
