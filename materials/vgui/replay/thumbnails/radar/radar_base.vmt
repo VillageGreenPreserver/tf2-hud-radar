@@ -36,8 +36,8 @@
 
 	"$speed"			"0"
 	
-	"$totalX"			"0" //scale the image so the distances line up, the higher the value, the less the image moves
-	"$totalY"			"0" //seperate value for y axis if using a non-square vtf
+	"$alignX"			"0" //scale the image so the distances line up, the higher the value, the less the image moves
+	"$alignY"			"0" //seperate value for y axis if using a non-square vtf
 
 	"$offsetX"			"0" //offset the image, not needed if you take your screenshots at coordinates 0, 0
 	"$offsetY"			"0"
@@ -105,7 +105,7 @@
 		Divide
 		{
 			srcVar1			"$posX"
-			srcVar2			"$totalX"
+			srcVar2			"$alignX"
 			resultVar		"$posX"
 		}
 
@@ -113,7 +113,7 @@
 		Divide
 		{
 			srcVar1			"$posY"
-			srcVar2			"$totalY"
+			srcVar2			"$alignY"
 			resultVar		"$posY"
 		}
 

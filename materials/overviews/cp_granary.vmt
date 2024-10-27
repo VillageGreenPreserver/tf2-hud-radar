@@ -9,8 +9,8 @@
 	{
 		"$basetexture"		"vgui/replay/thumbnails/radar/maps/cp_granary"
 
-		"$totalX"			"6900" //scale the image so the distances line up, the higher the value, the less the image moves
-		"$totalY"			"13800" //seperate value for y axis, use the same value as x if the vtf is a square
+		"$alignX"			"6900" //scale the image so the distances line up, the higher the value, the less the image moves
+		"$alignY"			"13800" //seperate value for y axis, use the same value as x if the vtf is a square
 
 		"$offsetX"			"1500" //offset the image, not needed if you take your screenshots at coordinates 0, 0
 		"$offsetY"			"0"

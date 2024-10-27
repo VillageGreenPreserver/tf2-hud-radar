@@ -122,12 +122,6 @@
 		}
 	}
 
-	"preload"
-	{
-		"ControlName"	"ImagePanel"
-		"image"			"../overviews/pl_upward"
-	}
-
 	"mouseoveritempanel"
 	{
 		"ControlName"	"CItemModelPanel"

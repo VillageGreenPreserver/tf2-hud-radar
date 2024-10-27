@@ -6,13 +6,14 @@
 		"fieldName"				"roundinfo"
 		"xpos"					"14"
 		"ypos"					"180"
-		"zpos"					"0"
-		"wide"					"100"
-		"tall"					"100"
+		"zpos"					"-999999"
+		"wide"					"90"
+		"tall"					"90"
 		"visible"				"0"
 		"keyboardinputenabled"	"0"
 		"mouseinputenabled"		"0"
 		"paintBackground"		"1"
+		"bgcolor_override"		"0 0 0 0"
 	}
 	
 	"radar_center"
