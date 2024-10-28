@@ -47,5 +47,11 @@
 			"ControlName"	"ImagePanel"
 			"image"			"../overviews/tc_hydro"
 		}
+		
+		"cp_dustbowl"
+		{
+			"ControlName"	"ImagePanel"
+			"image"			"../overviews/cp_dustbowl"
+		}
 	}
 }
