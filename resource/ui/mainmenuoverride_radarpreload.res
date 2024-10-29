@@ -53,5 +53,11 @@
 			"ControlName"	"ImagePanel"
 			"image"			"../overviews/cp_dustbowl"
 		}
+		
+		"ctf_well"
+		{
+			"ControlName"	"ImagePanel"
+			"image"			"../overviews/ctf_well"
+		}
 	}
 }
