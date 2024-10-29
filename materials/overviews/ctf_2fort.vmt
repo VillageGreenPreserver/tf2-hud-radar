@@ -15,7 +15,7 @@
 		"$offsetX"			"0" //offset the image, not needed if you take your screenshots at coordinates 0, 0
 		"$offsetY"			"0"
 			
-		"$scale"			"[0.15 0.3]" //size of the radar image
+		"$scale"			"[0.175 0.35]" //size of the radar image
 		"$rotate"			"-90" //rotate radar image
 
 		"$layer1"			"-100"
