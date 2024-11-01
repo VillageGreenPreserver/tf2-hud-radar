@@ -59,5 +59,12 @@
 			"ControlName"	"ImagePanel"
 			"image"			"../overviews/ctf_well"
 		}
+		
+		"cp_badlands"
+		{
+			"ControlName"	"ImagePanel"
+			"image"			"../overviews/cp_badlands"
+		}
+		
 	}
 }
