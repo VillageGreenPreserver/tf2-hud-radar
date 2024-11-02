@@ -66,5 +66,11 @@
 			"image"			"../overviews/cp_badlands"
 		}
 		
+		"pl_goldrush"
+		{
+			"ControlName"	"ImagePanel"
+			"image"			"../overviews/pl_goldrush"
+		}
+		
 	}
 }
