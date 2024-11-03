@@ -72,5 +72,11 @@
 			"image"			"../overviews/pl_goldrush"
 		}
 		
+		"ctf_turbine"
+		{
+			"ControlName"	"ImagePanel"
+			"image"			"../overviews/ctf_turbine"
+		}
+		
 	}
 }
