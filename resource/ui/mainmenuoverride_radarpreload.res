@@ -78,5 +78,11 @@
 			"image"			"../overviews/ctf_turbine"
 		}
 		
+		"cp_fastlane"
+		{
+			"ControlName"	"ImagePanel"
+			"image"			"../overviews/cp_fastlane"
+		}
+		
 	}
 }
